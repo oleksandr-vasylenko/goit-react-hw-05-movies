@@ -1,4 +1,4 @@
-export const MovieDetails = () => {
+export const Movies = () => {
   return (
     <>
       <p>Movies page</p>
