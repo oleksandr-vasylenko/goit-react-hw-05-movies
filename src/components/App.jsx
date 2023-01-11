@@ -6,7 +6,6 @@ import { MovieDetails } from '../pages/MovieDetails';
 export const App = () => {
   const StyledLink = styled(NavLink)`
     color: black;
-
     &.active {
       color: orange;
     }
