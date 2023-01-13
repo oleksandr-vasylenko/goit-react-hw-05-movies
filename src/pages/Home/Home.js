@@ -16,7 +16,7 @@ function Home() {
       <ul>
         {trendMovies.map(item => {
           return (
-            <Link to="/movies/:movieId/reviews" key={item.id}>
+            <Link to={`/movies/${item.id}/reviews`} key={item.id}>
               <li>{item.title}</li>
             </Link>
           );
