@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import getTrendingMovies from '../../utils/api';
 // import Movies from '../Movies/Movies';
 
@@ -11,10 +12,14 @@ function Home() {
 
   return (
     <>
-      <p>Trending movies will be here</p>
+      <p>Trending Movies</p>
       <ul>
         {trendMovies.map(item => {
-          return <li key={item.id}>{item.title}</li>;
+          return (
+            <Link to="/movies/:movieId/reviews" key={item.id}>
+              <li>{item.title}</li>
+            </Link>
+          );
         })}
       </ul>
     </>
