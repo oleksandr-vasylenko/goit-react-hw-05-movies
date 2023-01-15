@@ -19,11 +19,11 @@ export const getMovieByID = async id => {
   return response.data;
 };
 
-// const getMovieCreditsByID = async id => {
-//   const response = await axios.get(`/movie/${id}/credits`);
+export const getMovieCreditsByID = async id => {
+  const response = await axios.get(`/movie/${id}/credits`);
 
-//   return response.data.cast;
-// };
+  return response.data.cast;
+};
 
 // const getMovieReviewsByID = async id => {
 //   const response = await axios.get(`/movie/${id}/reviews`);
