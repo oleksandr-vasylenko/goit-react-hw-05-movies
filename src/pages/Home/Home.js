@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import getTrendingMovies from '../../utils/api';
+import { getTrendingMovies } from '../../utils/api';
 // import Movies from '../Movies/Movies';
 
 function Home() {

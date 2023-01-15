@@ -7,17 +7,17 @@ axios.defaults.params = {
   api_key: KEY,
 };
 
-async function getTrendingMovies() {
+export const getTrendingMovies = async () => {
   const response = await axios.get('/trending/movie/week');
 
   return response.data;
-}
+};
 
-// const getMovieByID = async id => {
-//   const response = await axios.get(`/movie/${id}`);
+export const getMovieByID = async id => {
+  const response = await axios.get(`/movie/${id}`);
 
-//   return response.data;
-// };
+  return response.data;
+};
 
 // const getMovieCreditsByID = async id => {
 //   const response = await axios.get(`/movie/${id}/credits`);
@@ -40,9 +40,7 @@ async function getTrendingMovies() {
 //   return response.data.results;
 // };
 
-export default getTrendingMovies;
-
-// {
+// export default {
 //   getTrendingMovies,
 //   getMovieByID,
 //   getMovieCreditsByID,
