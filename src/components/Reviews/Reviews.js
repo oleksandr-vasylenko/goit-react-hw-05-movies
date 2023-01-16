@@ -31,12 +31,16 @@ function Reviews() {
     <>
       <ReviewsList>
         {loading && <Loader />}
-        {movie.map(item => (
-          <ReviewItem key={item.id}>
-            <h4>{item.author}</h4>
-            <p>{item.content}</p>
-          </ReviewItem>
-        ))}
+        {!movie.length ? (
+          <p>We don't have any reviews for this movie</p>
+        ) : (
+          movie.map(item => (
+            <ReviewItem key={item.id}>
+              <h4>{item.author}</h4>
+              <p>{item.content}</p>
+            </ReviewItem>
+          ))
+        )}
       </ReviewsList>
     </>
   );
