@@ -4,7 +4,7 @@ import { getMovieReviewsByID } from '../../utils/api';
 import { ReviewsList, ReviewItem } from './Reviews.Styled';
 import { Loader } from '../../utils/Loader';
 
-function Reviews() {
+export default function Reviews() {
   const [review, setReview] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -45,5 +45,3 @@ function Reviews() {
     </>
   );
 }
-
-export default Reviews;

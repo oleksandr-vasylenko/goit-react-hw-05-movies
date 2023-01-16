@@ -4,7 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { MovieSearch, SearchForm, FoundList } from './Movies.Styled';
 import { Loader } from '../../utils/Loader';
 
-function Movies() {
+export default function Movies() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
@@ -69,5 +69,3 @@ function Movies() {
     </MovieSearch>
   );
 }
-
-export default Movies;

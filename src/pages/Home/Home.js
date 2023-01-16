@@ -4,7 +4,7 @@ import { getTrendingMovies } from '../../utils/api';
 import { TrendingThumb, TrendingList } from './Home.Styled';
 import { Loader } from '../../utils/Loader';
 
-function Home() {
+export default function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -43,5 +43,3 @@ function Home() {
     </>
   );
 }
-
-export default Home;

@@ -5,7 +5,7 @@ import placeholder from '../../images/placeholder.png';
 import { CastList, ActorItem, ActorName } from './Cast.Styled';
 import { Loader } from '../../utils/Loader';
 
-function Cast() {
+export default function Cast() {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -32,25 +32,27 @@ function Cast() {
     <>
       <CastList>
         {loading && <Loader />}
-        {movie.map(item => {
-          return (
-            <ActorItem key={item.id}>
-              <img
-                src={
-                  item.profile_path
-                    ? `https://image.tmdb.org/t/p/w200${item.profile_path}`
-                    : placeholder
-                }
-                alt={item.original_name}
-                width={150}
-              />
-              <ActorName>{item.original_name}</ActorName>
-            </ActorItem>
-          );
-        })}
+        {!movie.length ? (
+          <p>We don't have any cast for this movie</p>
+        ) : (
+          movie.map(item => {
+            return (
+              <ActorItem key={item.id}>
+                <img
+                  src={
+                    item.profile_path
+                      ? `https://image.tmdb.org/t/p/w200${item.profile_path}`
+                      : placeholder
+                  }
+                  alt={item.original_name}
+                  width={150}
+                />
+                <ActorName>{item.original_name}</ActorName>
+              </ActorItem>
+            );
+          })
+        )}
       </CastList>
     </>
   );
 }
-
-export default Cast;

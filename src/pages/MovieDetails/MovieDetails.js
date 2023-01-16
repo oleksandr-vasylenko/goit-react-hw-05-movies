@@ -9,7 +9,7 @@ import {
 } from './MovieDetails.Styled';
 import { Loader } from '../../utils/Loader';
 
-function MovieDetails() {
+export default function MovieDetails() {
   const [movie, setMovie] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -84,5 +84,3 @@ function MovieDetails() {
     </MovieDetailsThumb>
   );
 }
-
-export default MovieDetails;
