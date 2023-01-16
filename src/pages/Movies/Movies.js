@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getMovieByQuery } from '../../utils/api';
 import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { MovieSearch, SearchForm, FoundList } from './Movies.Styled';
 
 function Movies() {
   const [query, setQuery] = useSearchParams();
@@ -31,8 +32,8 @@ function Movies() {
   };
 
   return (
-    <div>
-      <form onSubmit={onSearch}>
+    <MovieSearch>
+      <SearchForm onSubmit={onSearch}>
         <input
           name="input"
           type="text"
@@ -43,8 +44,8 @@ function Movies() {
         <button type="submit">
           <span>Search</span>
         </button>
-      </form>
-      <ul>
+      </SearchForm>
+      <FoundList>
         {query &&
           results.map(({ id, title }) => {
             return (
@@ -55,8 +56,8 @@ function Movies() {
               </li>
             );
           })}
-      </ul>
-    </div>
+      </FoundList>
+    </MovieSearch>
   );
 }
 

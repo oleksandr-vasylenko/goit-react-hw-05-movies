@@ -1,6 +1,12 @@
 import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieByID } from '../../utils/api';
+import {
+  MovieDetailsThumb,
+  GeneralDetails,
+  AdditionalInfo,
+  AddInfoList,
+} from './MovieDetails.Styled';
 
 function MovieDetails() {
   const [movie, setMovie] = useState([]);
@@ -38,34 +44,38 @@ function MovieDetails() {
   const backLinkHref = location.state?.from ?? '/';
 
   return (
-    <>
-      <Link to={backLinkHref}>Back</Link>
+    <MovieDetailsThumb>
+      <Link to={backLinkHref}>BACK</Link>
 
-      <div>
+      <GeneralDetails>
         <img src={poster} alt={title} width={200} />
         <h2>
           {title} ({yyyy})
         </h2>
         <p>User Score: {rate}%</p>
-        <h3>Overview</h3>
-        <p>{overview}</p>
-        <h3>Genres</h3>
-        <p>{genresList}</p>
-      </div>
+        <div>
+          <h3>Overview</h3>
+          <p>{overview}</p>
+        </div>
+        <div>
+          <h3>Genres</h3>
+          <p>{genresList}</p>
+        </div>
+      </GeneralDetails>
 
-      <div>
+      <AdditionalInfo>
         <h3>Additional Information</h3>
-        <ul>
+        <AddInfoList>
           <li>
             <Link to="cast">Cast</Link>
           </li>
           <li>
             <Link to="reviews">Reviews</Link>
           </li>
-        </ul>
-      </div>
+        </AddInfoList>
+      </AdditionalInfo>
       <Outlet />
-    </>
+    </MovieDetailsThumb>
   );
 }
 

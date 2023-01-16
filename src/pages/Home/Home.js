@@ -17,9 +17,9 @@ function Home() {
         <TrendingList>
           {trendMovies.map(item => {
             return (
-              <Link to={`/movies/${item.id}`} key={item.id}>
-                <li>{item.title}</li>
-              </Link>
+              <li key={item.id}>
+                <Link to={`/movies/${item.id}`}>{item.title}</Link>
+              </li>
             );
           })}
         </TrendingList>
