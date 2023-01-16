@@ -7,21 +7,26 @@ import {
   AdditionalInfo,
   AddInfoList,
 } from './MovieDetails.Styled';
+import { Loader } from '../../utils/Loader';
 
 function MovieDetails() {
   const [movie, setMovie] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const moiveId = useParams().movieId;
 
   useEffect(() => {
     const getMovie = async () => {
       try {
+        setLoading(true);
         const response = await getMovieByID(moiveId);
         setMovie(response);
 
         return response;
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     getMovie();
@@ -45,6 +50,7 @@ function MovieDetails() {
 
   return (
     <MovieDetailsThumb>
+      {loading && <Loader />}
       <Link to={backLinkHref}>BACK</Link>
 
       <GeneralDetails>

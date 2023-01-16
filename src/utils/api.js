@@ -10,7 +10,7 @@ axios.defaults.params = {
 export const getTrendingMovies = async () => {
   const response = await axios.get('/trending/movie/week');
 
-  return response.data;
+  return response.data.results;
 };
 
 export const getMovieByID = async id => {
