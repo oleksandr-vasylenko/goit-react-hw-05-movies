@@ -5,7 +5,7 @@ import { ReviewsList, ReviewItem } from './Reviews.Styled';
 import { Loader } from '../../utils/Loader';
 
 function Reviews() {
-  const [movie, setMovie] = useState([]);
+  const [review, setReview] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const moiveId = useParams().movieId;
@@ -15,7 +15,7 @@ function Reviews() {
       try {
         setLoading(true);
         const response = await getMovieReviewsByID(moiveId);
-        setMovie(response);
+        setReview(response);
 
         return response;
       } catch (error) {
@@ -31,10 +31,10 @@ function Reviews() {
     <>
       <ReviewsList>
         {loading && <Loader />}
-        {!movie.length ? (
+        {!review.length ? (
           <p>We don't have any reviews for this movie</p>
         ) : (
-          movie.map(item => (
+          review.map(item => (
             <ReviewItem key={item.id}>
               <h4>{item.author}</h4>
               <p>{item.content}</p>
