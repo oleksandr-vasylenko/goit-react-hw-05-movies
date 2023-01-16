@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getTrendingMovies } from '../../utils/api';
+import { TrendingThumb, TrendingList } from './Home.Styled';
 
 function Home() {
   const [trendMovies, setTrendMovies] = useState([]);
@@ -11,9 +12,9 @@ function Home() {
 
   return (
     <>
-      <div>
-        <h2>Trending Movies</h2>
-        <ul>
+      <TrendingThumb>
+        <h3>TRENDING NOW</h3>
+        <TrendingList>
           {trendMovies.map(item => {
             return (
               <Link to={`/movies/${item.id}`} key={item.id}>
@@ -21,8 +22,8 @@ function Home() {
               </Link>
             );
           })}
-        </ul>
-      </div>
+        </TrendingList>
+      </TrendingThumb>
     </>
   );
 }

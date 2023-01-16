@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
+import { NavBar } from './SharedLayout.Styled';
 
 const StyledLink = styled(NavLink)`
-  color: black;
+  color: #ffffff;
   &.active {
     color: orange;
   }
@@ -12,10 +13,10 @@ const StyledLink = styled(NavLink)`
 function SharedLayout() {
   return (
     <>
-      <nav>
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/movies">Movies</StyledLink>
-      </nav>
+      <NavBar>
+        <StyledLink to="/">HOME</StyledLink>
+        <StyledLink to="/movies">MOVIES</StyledLink>
+      </NavBar>
       <Outlet />
     </>
   );

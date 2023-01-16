@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
-
-import SharedLayout from '../../pages/SharedLayout ';
+import { GlobalStyle } from '../../GlobalStyle';
+import SharedLayout from '../../pages/SharedLayout/SharedLayout ';
 import Home from '../../pages/Home/Home';
 import MovieDetails from '../../pages/MovieDetails/MovieDetails';
-import Movies from '../Movies/Movies';
+import Movies from '../../pages/Movies/Movies';
 import Cast from '../Cast/Cast';
 import Reviews from '../Reviews/Reviews';
 import NotFound from '../NotFound/NotFound';
@@ -22,6 +22,7 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
+      <GlobalStyle />
     </>
   );
 };
