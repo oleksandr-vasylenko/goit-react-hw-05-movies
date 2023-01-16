@@ -27,23 +27,15 @@ export const getMovieCreditsByID = async id => {
 
 export const getMovieReviewsByID = async id => {
   const response = await axios.get(`/movie/${id}/reviews`);
-  return response.data.results;
+  return response;
 };
 
-// const getMovieByQuery = async query => {
-//   const response = await axios.get('/search/movie', {
-//     params: {
-//       query: query,
-//     },
-//   });
+export const getMovieByQuery = async query => {
+  const response = await axios.get('/search/movie', {
+    params: {
+      query: query,
+    },
+  });
 
-//   return response.data.results;
-// };
-
-// export default {
-//   getTrendingMovies,
-//   getMovieByID,
-//   getMovieCreditsByID,
-//   getMovieReviewsByID,
-//   getMovieByQuery,
-// };
+  return response.data.results;
+};

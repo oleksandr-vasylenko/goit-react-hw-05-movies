@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieReviewsByID } from '../../utils/api';
 
-function Cast() {
+function Reviews() {
   const [movie, setMovie] = useState([]);
 
   const moiveId = useParams().movieId;
@@ -35,4 +35,4 @@ function Cast() {
   );
 }
 
-export default Cast;
+export default Reviews;
