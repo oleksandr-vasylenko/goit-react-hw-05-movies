@@ -48,7 +48,7 @@ function MovieDetails() {
       <Link to={backLinkHref}>BACK</Link>
 
       <GeneralDetails>
-        <img src={poster} alt={title} width={200} />
+        <img src={poster} alt={title} width={300} />
         <h2>
           {title} ({yyyy})
         </h2>

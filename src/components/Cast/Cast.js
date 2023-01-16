@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieCreditsByID } from '../../utils/api';
 import placeholder from '../../images/placeholder.png';
+import { CastList, ActorItem, ActorName } from './Cast.Styled';
 
 function Cast() {
   const [movie, setMovie] = useState([]);
@@ -24,10 +25,10 @@ function Cast() {
 
   return (
     <>
-      <ul>
+      <CastList>
         {movie.map(item => {
           return (
-            <li key={item.id}>
+            <ActorItem key={item.id}>
               <img
                 src={
                   item.profile_path
@@ -35,13 +36,13 @@ function Cast() {
                     : placeholder
                 }
                 alt={item.original_name}
-                width={100}
+                width={150}
               />
-              {item.original_name}
-            </li>
+              <ActorName>{item.original_name}</ActorName>
+            </ActorItem>
           );
         })}
-      </ul>
+      </CastList>
     </>
   );
 }
