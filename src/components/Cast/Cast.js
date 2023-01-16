@@ -3,21 +3,26 @@ import { useState, useEffect } from 'react';
 import { getMovieCreditsByID } from '../../utils/api';
 import placeholder from '../../images/placeholder.png';
 import { CastList, ActorItem, ActorName } from './Cast.Styled';
+import { Loader } from '../../utils/Loader';
 
 function Cast() {
   const [movie, setMovie] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const moiveId = useParams().movieId;
 
   useEffect(() => {
     const getMovieCredits = async () => {
       try {
+        setLoading(true);
         const response = await getMovieCreditsByID(moiveId);
         setMovie(response);
 
         return { response };
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
     getMovieCredits();
@@ -26,6 +31,7 @@ function Cast() {
   return (
     <>
       <CastList>
+        {loading && <Loader />}
         {movie.map(item => {
           return (
             <ActorItem key={item.id}>
