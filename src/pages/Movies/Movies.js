@@ -1,17 +1,23 @@
 import { useState, useEffect } from 'react';
 import { getMovieByQuery } from '../../utils/api';
-import { Link, useSearchParams, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { MovieSearch, SearchForm, FoundList } from './Movies.Styled';
+import { Loader } from '../../utils/Loader';
 
 function Movies() {
-  const [query, setQuery] = useSearchParams();
+  const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
+    if (query === '') {
+      return;
+    }
     const searchMovie = async () => {
       try {
+        setLoading(true);
         const searchedMovies = await getMovieByQuery(query);
         if (searchedMovies) {
           setResults(searchedMovies);
@@ -19,6 +25,8 @@ function Movies() {
       } catch {
         setError('Something went wrong. Please try again.');
         return error;
+      } finally {
+        setLoading(false);
       }
     };
     query !== null && searchMovie();
@@ -33,6 +41,7 @@ function Movies() {
 
   return (
     <MovieSearch>
+      {loading && <Loader />}
       <SearchForm onSubmit={onSearch}>
         <input
           name="input"
