@@ -21,7 +21,6 @@ function Cast() {
     getMovieCredits();
   }, [moiveId]);
 
-  console.log(movie);
   return (
     <>
       <ul>

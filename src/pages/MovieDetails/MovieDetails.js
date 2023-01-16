@@ -1,4 +1,4 @@
-import { useParams, Link, Outlet } from 'react-router-dom';
+import { useParams, Link, Outlet, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { getMovieByID } from '../../utils/api';
 
@@ -41,9 +41,13 @@ function MovieDetails() {
         return name;
       })
       .join(', ');
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   return (
     <>
+      <Link to={backLinkHref}>Back</Link>
+
       <div>
         <img src={poster} alt={title} width={200} />
         <h2>
