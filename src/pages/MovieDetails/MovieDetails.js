@@ -21,15 +21,8 @@ function MovieDetails() {
     getMovie();
   }, [moiveId]);
 
-  const {
-    id,
-    poster_path,
-    title,
-    release_date,
-    overview,
-    vote_average,
-    genres,
-  } = movie;
+  const { poster_path, title, release_date, overview, vote_average, genres } =
+    movie;
 
   const poster = poster_path && `https://image.tmdb.org/t/p/w500${poster_path}`;
   const yyyy = release_date && release_date.substring(0, 4);
